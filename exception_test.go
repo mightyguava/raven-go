@@ -11,6 +11,7 @@ var newExceptionTests = []struct {
 	Exception
 }{
 	{errors.New("foobar"), Exception{Value: "foobar", Type: "*errors.errorString"}},
+	{errors.New(""), Exception{Value: "<empty message>", Type: "*errors.errorString"}},
 	{errors.New("bar: foobar"), Exception{Value: "foobar", Type: "*errors.errorString", Module: "bar"}},
 }
 

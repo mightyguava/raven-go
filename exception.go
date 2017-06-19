@@ -9,6 +9,9 @@ var errorMsgPattern = regexp.MustCompile(`\A(\w+): (.+)\z`)
 
 func NewException(err error, stacktrace *Stacktrace) *Exception {
 	msg := err.Error()
+	if msg == "" {
+		msg = "<empty message>"
+	}
 	ex := &Exception{
 		Stacktrace: stacktrace,
 		Value:      msg,
